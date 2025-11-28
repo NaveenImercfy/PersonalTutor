@@ -150,20 +150,29 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
 # Configure your Google Cloud project
-export GOOGLE_CLOUD_PROJECT="your-project-id"
-export GOOGLE_CLOUD_LOCATION="us-central1"
+export GOOGLE_CLOUD_PROJECT="your-project-id" #aitrack-29a9e
+export GOOGLE_CLOUD_LOCATION="us-central1" #us-east4
+
+#export GOOGLE_CLOUD_LOCATION="us-east4"
+#export GOOGLE_API_KEY=AIzaSyBAdEzIFEJSv3p41TN2kZb1WYnVmwKmOhg
 
 # Enable required Google Cloud services
 gcloud services enable aiplatform.googleapis.com --project=${GOOGLE_CLOUD_PROJECT}
 gcloud services enable storage.googleapis.com --project=${GOOGLE_CLOUD_PROJECT}
 
+
+
 # Set up IAM permissions
 gcloud projects add-iam-policy-binding ${GOOGLE_CLOUD_PROJECT} \
     --member="user:YOUR_EMAIL@domain.com" \
     --role="roles/aiplatform.user"
+
+
 gcloud projects add-iam-policy-binding ${GOOGLE_CLOUD_PROJECT} \
     --member="user:YOUR_EMAIL@domain.com" \
     --role="roles/storage.objectAdmin"
+
+
 
 # Set up Gemini API key
 # Get your API key from Google AI Studio: https://ai.google.dev/
@@ -175,7 +184,8 @@ gcloud auth application-default login
 
 # Option 2: Use a service account key (for production or CI/CD environments)
 # Download your service account key from GCP Console and set the environment variable
-export GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/service-account-key.json
+export GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/service-account-key.json 
+export GOOGLE_APPLICATION_CREDENTIALS=/Users/naveen/Downloads/aitrack-29a9e-firebase-adminsdk-rzj56-3e65c47da1.json
 ```
 
 ## Usage

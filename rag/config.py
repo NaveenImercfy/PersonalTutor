@@ -3,8 +3,8 @@ Configuration settings for the Vertex AI RAG engine.
 """
 
 # Google Cloud Project Settings
-PROJECT_ID = "your-project-id"  # Replace with your project ID
-LOCATION = "us-central1"  # Default location for Vertex AI resources
+PROJECT_ID = "aitrack-29a9e"  # Replace with your project ID
+LOCATION = "us-east4"  # Default location for Vertex AI resources
 
 # GCS Storage Settings
 GCS_DEFAULT_STORAGE_CLASS = "STANDARD"
