@@ -186,6 +186,8 @@ gcloud auth application-default login
 # Download your service account key from GCP Console and set the environment variable
 export GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/service-account-key.json 
 export GOOGLE_APPLICATION_CREDENTIALS=/Users/naveen/Downloads/aitrack-29a9e-firebase-adminsdk-rzj56-3e65c47da1.json
+
+export GOOGLE_APPLICATION_CREDENTIALS=/home/thiruforever/ServiceFile/aitrack-29a9e-firebase-adminsdk-rzj56-3e65c47da1.json
 ```
 
 ## Usage

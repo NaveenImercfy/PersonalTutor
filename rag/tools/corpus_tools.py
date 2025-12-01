@@ -729,6 +729,47 @@ def search_all_corpora(
             "message": f"Failed to search all corpora: {str(e)}"
         }
 
+
+def search_corpus_by_name(
+    corpus_name: str,
+    query_text: str
+) -> Dict[str, Any]:
+    """
+    Finds a corpus by its display name and performs a search query on it.
+
+    Args:
+        corpus_name: The display name of the RAG corpus to search.
+        query_text: The question to ask the corpus.
+
+    Returns:
+        A dictionary containing the search results and citation summary.
+    """
+    try:
+        corpora_response = list_rag_corpora()
+        if corpora_response["status"] != "success":
+            return {
+                "status": "error",
+                "error_message": f"Failed to list corpora to find '{corpus_name}'.",
+                "message": f"Could not find corpus '{corpus_name}' because listing corpora failed."
+            }
+
+        target_corpus = None
+        for corpus in corpora_response.get("corpora", []):
+            if corpus.get("display_name") and corpus.get("display_name").strip().lower() == corpus_name.strip().lower():
+                target_corpus = corpus
+                break
+
+        if not target_corpus:
+            return {
+                "status": "error",
+                "message": f"❌ Error: Corpus with name '{corpus_name}' not found."
+            }
+
+        corpus_id = target_corpus["id"]
+        return query_rag_corpus(corpus_id=corpus_id, query_text=query_text)
+    except Exception as e:
+        return {"status": "error", "error_message": str(e), "message": f"An unexpected error occurred while searching by name: {e}"}
+
 # Create FunctionTools from the functions for the RAG corpus management tools
 create_corpus_tool = FunctionTool(create_rag_corpus)
 update_corpus_tool = FunctionTool(update_rag_corpus)
@@ -745,3 +786,4 @@ delete_file_tool = FunctionTool(delete_rag_file)
 # Create FunctionTools from the functions for the RAG query tools
 query_rag_corpus_tool = FunctionTool(query_rag_corpus)
 search_all_corpora_tool = FunctionTool(search_all_corpora) 
+search_corpus_by_name_tool = FunctionTool(search_corpus_by_name)

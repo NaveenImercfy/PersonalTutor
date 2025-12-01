@@ -45,9 +45,9 @@ agent = Agent(
        
     3. CORPUS SEARCHING:
        - SEARCH ALL CORPORA: Use search_all_corpora(query_text="your question") to search across ALL available corpora
-       - SEARCH SPECIFIC CORPUS: Use query_rag_corpus(corpus_id="ID", query_text="your question") for a specific corpus
+       - SEARCH SPECIFIC CORPUS: If the user provides a corpus name, use search_corpus_by_name(corpus_name="NAME", query_text="your question"). If they provide a corpus ID, use query_rag_corpus(corpus_id="ID", query_text="your question").
        - When the user asks a question or for information, use the search_all_corpora tool by default.
-       - If the user specifies a corpus ID, use the query_rag_corpus tool for that corpus.
+       - If the user specifies a corpus name or ID, use the appropriate tool to search that specific corpus.
        
        - IMPORTANT - CITATION FORMAT:
          - When presenting search results, ALWAYS include the citation information
@@ -77,6 +77,7 @@ agent = Agent(
         # RAG query tools
         corpus_tools.query_rag_corpus_tool,
         corpus_tools.search_all_corpora_tool,
+        corpus_tools.search_corpus_by_name_tool,
         
         # GCS bucket management tools
         storage_tools.create_bucket_tool,
