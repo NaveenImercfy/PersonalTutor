@@ -153,8 +153,16 @@ pip install -r requirements.txt
 export GOOGLE_CLOUD_PROJECT="your-project-id" #aitrack-29a9e
 export GOOGLE_CLOUD_LOCATION="us-central1" #us-east4
 
+#export GOOGLE_CLOUD_PROJECT="aitrack-29a9e" 
 #export GOOGLE_CLOUD_LOCATION="us-east4"
-#export GOOGLE_API_KEY=AIzaSyBAdEzIFEJSv3p41TN2kZb1WYnVmwKmOhg
+#export GOOGLE_API_KEY=AIzaSyAQLfNbSuRAFqLHDMkOqvWPM5PIE2j2VGs
+
+#AIzaSyAQLfNbSuRAFqLHDMkOqvWPM5PIE2j2VGs # new
+
+#AQ.Ab8RN6JbbbZdjJup9ocSxFTRU1kXTYIg1qYU0EtYMjThh10f_w
+#AIzaSyBAdEzIFEJSv3p41TN2kZb1WYnVmwKmOhg #old
+
+
 
 # Enable required Google Cloud services
 gcloud services enable aiplatform.googleapis.com --project=${GOOGLE_CLOUD_PROJECT}

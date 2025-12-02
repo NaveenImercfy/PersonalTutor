@@ -23,7 +23,7 @@ RAG_DEFAULT_PAGE_SIZE = 50  # Default page size for listing files
 
 # Agent Settings
 AGENT_NAME = "rag_corpus_manager"
-AGENT_MODEL = "gemini-2.0-flash-exp"
+AGENT_MODEL = "gemini-2.5-flash"
 AGENT_OUTPUT_KEY = "last_response"
 
 # Logging Settings
