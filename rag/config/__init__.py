@@ -21,6 +21,10 @@ RAG_DEFAULT_SEARCH_TOP_K = 5  # Default number of results per corpus for search_
 RAG_DEFAULT_VECTOR_DISTANCE_THRESHOLD = 0.5
 RAG_DEFAULT_PAGE_SIZE = 50  # Default page size for listing files
 
+# Default RAG Corpus
+RAG_DEFAULT_CORPUS_NAME = "education_textbooks_unified"
+RAG_DEFAULT_CORPUS_ID = "2666130979403333632"
+
 # Agent Settings
 AGENT_NAME = "rag_corpus_manager"
 AGENT_MODEL = "gemini-2.5-flash"
